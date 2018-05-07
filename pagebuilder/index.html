@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML JavaScript output on same page</title>
+    
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#btnPrint").live("click", function () {
+            var divContents = $("#dvContainer").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    </script>
+    <script>
+function wedding(){
+    document.getElementById("dvContainer").style.color = "black";
+document.getElementById("dvContainer").style.textAlign = "center";
+document.getElementById("dvContainer").style.fontFamily = "Acme";
+document.getElementById("dvContainer").style.backgroundImage = "url('https://i.pinimg.com/originals/de/24/76/de2476483371f702a866a348d4d04577.jpg')";
+document.getElementById("dvContainer").style.backgroundSize = "cover";
+};
+function Birthday(){
+document.getElementById("dvContainer").style.color = "white";
+document.getElementById("dvContainer").style.fontFamily = "Arial";
+document.getElementById("dvContainer").style.fontSize = "larger";
+    document.getElementById("dvContainer").style.backgroundImage = "url('https://c.pxhere.com/photos/5c/1d/candles_happy_birthday_flame_dark-136381.jpg!d')";
+document.getElementById("dvContainer").style.backgroundSize = "cover";
+};
+</script>
+    <style>
+        .form1{
+            background-color: #282828;
+            width:30%;
+            top:0;
+            padding:2%;
+            color:white;
+            float: left;
+        }
+        .invite{
+            float:right;
+            padding:3%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width:60%;
+        }
+        .logo{
+            padding-left: 1%;
+            padding-bottom: 1%;
+
+        }
+        header{
+            background-color: black;
+            color:white;
+            width: 100%;
+            margin-top:-1%;
+            height:10vh;
+
+        }
+        #btnPrint{
+                     background-color: #282828;
+            top:0;
+            padding:1%;
+            color:white;
+            float: left;
+            margin-top: 1%;
+        }
+       
+    
+    </style>
+    <script type="text/JavaScript">
+        function showMessage(){
+            var fheading = document.getElementById("fheading").value;
+            heading.innerHTML= fheading;
+              var fbody = document.getElementById("fbody").value;
+            articlebody.innerHTML= fbody;
+             var fdate = document.getElementById("fdate").value;
+            artdate.innerHTML= fdate;
+                         var fdate = document.getElementById("fdate").value;
+            artdate.innerHTML= "DATE:" + fdate;
+        }
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset=utf-8 />
+    
+</head>
+    
+    <header>
+        <div class="logo">
+            <img src="">
+            <h1>InviteMe</h1>
+        </div>
+        
+    </header>
+<body>
+    
+
+
+
+<div class="form1">
+    <h2>Template</h2>
+    <button onclick="wedding()">Wedding</button>
+<button onclick="Birthday()">Birthday</button><br><br>
+Invitation Date     :     <input type="date" id="fdate">
+<br>
+Invitation Headline: <input type="text" id = "fheading"><br>
+    
+<br>
+Invitation Description: <textarea type="text" id = "fbody"></textarea>
+    
+<input type="submit" onclick="showMessage()" value="submit" /><br>
+    <input type="button" value="Print invite" id="btnPrint" /><br>
+    
+</div>
+<br>
+<br>
+
+<div class="invite" id="dvContainer">
+
+<em id="artdate"></em>
+<h2 id = "heading"></h2>
+<p id="articlebody"></p>
+</div>
+        
+</body>
+</html>
